@@ -7,13 +7,14 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.state.ProjectileEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class EokaShotModel extends EntityModel<EokaShotEntity> {
+public class EokaShotModel extends EntityModel<ProjectileEntityRenderState> {
     public static final EntityModelLayer EOKASHOT = new EntityModelLayer(Identifier.of(Crank.MOD_ID, "eokashot"), "main");
     private final ModelPart eokashot;
 
@@ -21,7 +22,6 @@ public class EokaShotModel extends EntityModel<EokaShotEntity> {
         super(root);
         this.eokashot = root.getChild("eokashot");
     }
-
 
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -31,8 +31,8 @@ public class EokaShotModel extends EntityModel<EokaShotEntity> {
     }
 
 
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        eokashot.render(matrices, vertexConsumer, light, overlay, color);
-    }
+    //@Override
+    //public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
+    //    eokashot.render(matrices, vertexConsumer, light, overlay, color);
+    //}
 }

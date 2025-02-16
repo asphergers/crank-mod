@@ -1,11 +1,10 @@
 package com.example;
 
-import com.example.item.ModItemGroups;
 import com.example.item.ModItems;
 import net.fabricmc.api.ModInitializer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class Crank implements ModInitializer {
 	public static final String MOD_ID = "crank";
@@ -14,9 +13,6 @@ public class Crank implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
-
-		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 	}
 }
