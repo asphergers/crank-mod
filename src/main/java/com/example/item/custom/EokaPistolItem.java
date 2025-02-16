@@ -18,7 +18,7 @@ public class EokaPistolItem extends Item{
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
         if (!world.isClient) {
@@ -32,6 +32,6 @@ public class EokaPistolItem extends Item{
             itemStack.decrement(1);
         }
 
-        return ActionResult.SUCCESS(itemStack, world.isClient());
+        return ActionResult.SUCCESS;
     }
 }
