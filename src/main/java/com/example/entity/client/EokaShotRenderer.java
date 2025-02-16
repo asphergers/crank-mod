@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class EokaShotRenderer extends ProjectileEntityRenderer<EokaShotEntity, EokaShotRenderState> {
     protected EokaShotModel model;
-    public static final Identifier TEXTURE = Identifier.ofVanilla("textures/entity/projectiles/arrow.png");
+    public static final Identifier TEXTURE = Identifier.of("textures/entity/projectiles/eokashot.png");
 
 
     public EokaShotRenderer(EntityRendererFactory.Context ctx) {
