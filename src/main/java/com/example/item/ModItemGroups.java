@@ -1,0 +1,28 @@
+package com.example.item;
+
+
+import com.example.Crank;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+
+public class ModItemGroups {
+
+    public static final ItemGroup PINK_GARNET_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Crank.MOD_ID, "pink_garnet_blocks"),
+            FabricItemGroup.builder().icon(() -> new ItemStack(Items.ARMOR_STAND))
+                    .displayName(Text.translatable("itemgroup.epicmod.pink_garnet_blocks"))
+                    .entries((displayContext, entries) -> {
+
+                        entries.add(ModItems.EOKAPISTOL);
+
+                    }).build());
+
+
+    public static void registerItemGroups() {
+        Crank.LOGGER.info("Registering Item Groups for " + Crank.MOD_ID);
+    }
+}
