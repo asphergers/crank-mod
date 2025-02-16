@@ -28,14 +28,14 @@ public class EokaShotEntity extends PersistentProjectileEntity {
 
 
     public boolean isGrounded() {
-        return inGround;
+        return isInGround();
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 4);
+
 
         if (!this.getWorld().isClient()) {
             this.getWorld().sendEntityStatus(this, (byte)3);
