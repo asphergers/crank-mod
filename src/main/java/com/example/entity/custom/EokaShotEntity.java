@@ -4,7 +4,6 @@ import com.example.entity.ModEntities;
 import com.example.item.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ public class EokaShotEntity extends PersistentProjectileEntity {
         super(entityType, world);
     }
 
-    public EokaShotEntity(World world, LivingEntity player) {
+    public EokaShotEntity(World world, PlayerEntity player) {
         super(ModEntities.EOKASHOT, player, world, new ItemStack(ModItems.EOKAPISTOL), null);
     }
 
