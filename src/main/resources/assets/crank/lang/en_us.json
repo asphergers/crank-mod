@@ -1,5 +1,7 @@
 {
   "item.crank.eokapistol": "Eoka Pistol",
 
-  "entity.crank.eokashot": "Eoka Shot"
+  "entity.crank.eokashot": "Eoka Shot",
+
+  "itemgroup.crank.eokapistol": "Crank Mod"
 }

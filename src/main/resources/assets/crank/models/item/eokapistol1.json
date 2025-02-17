@@ -1,0 +1,6 @@
+{
+  "parent": "crank:item/eokapistol",
+  "textures": {
+    "0": "crank:item/eokapistol1"
+  }
+}

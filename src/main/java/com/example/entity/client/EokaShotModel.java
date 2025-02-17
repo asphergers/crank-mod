@@ -2,20 +2,14 @@ package com.example.entity.client;
 
 
 import com.example.Crank;
-import com.example.entity.custom.EokaShotEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.state.ProjectileEntityRenderState;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 
 public class EokaShotModel extends EntityModel<ProjectileEntityRenderState> {
-    public static final EntityModelLayer EOKASHOT = new EntityModelLayer(Identifier.of(Crank.MOD_ID, "eokashot"), "main");
+    public static final EntityModelLayer EOKASHOT = new EntityModelLayer(Identifier.of(Crank.MOD_ID, "eokashot"), "m+ain");
     private final ModelPart eokashot;
 
     protected EokaShotModel(ModelPart root) {

@@ -3,6 +3,7 @@ package com.example;
 import com.example.entity.ModEntities;
 import com.example.entity.client.EokaShotModel;
 import com.example.entity.client.EokaShotRenderer;
+import com.example.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -13,5 +14,7 @@ public class CrankModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(EokaShotModel.EOKASHOT, EokaShotModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.EOKASHOT, EokaShotRenderer::new);
+
+        ModModelPredicates.registerModelPredicates();
     }
 }

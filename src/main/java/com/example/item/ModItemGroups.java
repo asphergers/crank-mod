@@ -11,10 +11,10 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
 
-    public static final ItemGroup PINK_GARNET_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(Crank.MOD_ID, "pink_garnet_blocks"),
+    public static final ItemGroup EOKA_PISTOL_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Crank.MOD_ID, "eokapistol"),
             FabricItemGroup.builder().icon(() -> new ItemStack(Items.ARMOR_STAND))
-                    .displayName(Text.translatable("itemgroup.epicmod.pink_garnet_blocks"))
+                    .displayName(Text.translatable("itemgroup.crank.eokapistol"))
                     .entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EOKAPISTOL);

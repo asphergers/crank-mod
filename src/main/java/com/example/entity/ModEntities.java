@@ -19,7 +19,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             Identifier.of(Crank.MOD_ID, "eokashot"),
             EntityType.Builder.<EokaShotEntity>create(EokaShotEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.5f, 1.15f)
+                    .dimensions(0.5f, 0.5f)
                     .build(EokaShotEntity)
     );
 

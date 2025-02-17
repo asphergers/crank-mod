@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.item.ModItemGroups;
 import com.example.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,6 +14,9 @@ public class Crank implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
+
 		ModItems.registerModItems();
+
 	}
 }
