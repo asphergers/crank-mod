@@ -33,11 +33,14 @@ public class EokaPistolItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient && user instanceof PlayerEntity player) {
 
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
 
-            EokaShotEntity eokashot = new EokaShotEntity(world, user);
-            eokashot.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 0f);
-            world.spawnEntity(eokashot);
+            for(int i = 0; i < 12; i++){
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
+                EokaShotEntity eokashot = new EokaShotEntity(world, user);
+                eokashot.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 2f, 5f);
+                world.spawnEntity(eokashot);
+            }
+
         }
         return super.finishUsing(stack, world, user);
     }
