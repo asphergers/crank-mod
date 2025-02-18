@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:out_of_world"
+    "crank:ignore_iframes"
   ]
 }

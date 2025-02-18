@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public class CrankDamageTypes {
     public static final RegistryKey<DamageType> IGNORE_IFRAMES =
-            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of("crank", "ignore_iframes"));
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(Crank.MOD_ID, "ignore_iframes"));
 
     public static net.minecraft.entity.damage.DamageSource createDamageSource(World world) {
         return world.getDamageSources().create(IGNORE_IFRAMES);

@@ -45,7 +45,7 @@ public class EokaShotEntity extends PersistentProjectileEntity {
         DamageSource damageSource = new DamageSource(
         entity.getWorld().getRegistryManager()
                 .getOrThrow(RegistryKeys.DAMAGE_TYPE)
-                .getEntry(DamageTypes.OUT_OF_WORLD.getValue()).get()
+                .getEntry(CrankDamageTypes.IGNORE_IFRAMES.getValue()).get()
         );
 
         entity.damage(Crank.server.getOverworld(), damageSource, 1f);
