@@ -4,6 +4,11 @@ package com.example;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import com.example.datagen.*;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.registry.RegistryBuilder;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
 
 public class CrankDataGenerator implements DataGeneratorEntrypoint {
 	@Override
