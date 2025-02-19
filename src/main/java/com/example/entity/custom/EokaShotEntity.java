@@ -38,10 +38,10 @@ public class EokaShotEntity extends PersistentProjectileEntity {
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
+        if (!this.getWorld().isClient()) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
 
-        //DamageSource damageSource = getWorld().getDamageSources().create(CrankDamageTypes.IGNORE_IFRAMES);
         DamageSource damageSource = new DamageSource(
         entity.getWorld().getRegistryManager()
                 .getOrThrow(RegistryKeys.DAMAGE_TYPE)
@@ -49,10 +49,8 @@ public class EokaShotEntity extends PersistentProjectileEntity {
         );
 
         entity.damage(Crank.server.getOverworld(), damageSource, 1f);
-
-        if (!this.getWorld().isClient()) {
-            this.getWorld().sendEntityStatus(this, (byte)3);
-            this.discard();
+        this.getWorld().sendEntityStatus(this, (byte)3);
+        this.discard();
         }
     }
 
