@@ -1,5 +1,6 @@
 package com.example.datagen;
 
+import com.example.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 
@@ -20,6 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-
+        itemModelGenerator.register(ModItems.STOPWATCH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EOKABULLET, Models.GENERATED);
     }
 }

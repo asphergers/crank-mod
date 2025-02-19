@@ -24,6 +24,10 @@ public class ModItems {
                     .maxCount(1)
                     .registryKey(CrankUtils.crankKeyOfItem("stop"))));
 
+    public static final Item EOKABULLET = registerItem("eoka_bullet",
+            new StopWatchItem(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("eoka_bullet"))));
+
 
     private static Item registerItem(String name, Item item) {
         System.out.println(item);

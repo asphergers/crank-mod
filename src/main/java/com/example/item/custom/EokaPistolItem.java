@@ -1,6 +1,8 @@
 package com.example.item.custom;
 
 import com.example.entity.custom.EokaShotEntity;
+import com.example.item.ModItems;
+import com.example.util.CrankUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -30,7 +32,18 @@ public class EokaPistolItem extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        int shots = 10;
         if (!world.isClient && user instanceof PlayerEntity player) {
+
+            if(!user.isInCreativeMode()) {
+                //roll for success
+
+                if (!CrankUtils.hasItem(((PlayerEntity) user).getInventory(), ModItems.EOKABULLET)) { return super.finishUsing(stack, world, user); }
+
+                ItemStack bulletStack = CrankUtils.getItemFromInventory(((PlayerEntity) user).getInventory(), ModItems.EOKABULLET).get();
+                if (bulletStack.getCount() < shots) { return super.finishUsing(stack, world, user); }
+                bulletStack.decrement(shots);
+            }
 
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
             for(int i = 0; i < 20; i++){
@@ -40,6 +53,7 @@ public class EokaPistolItem extends Item {
                 world.spawnEntity(eokashot);
             }
         }
+
         return super.finishUsing(stack, world, user);
     }
 
