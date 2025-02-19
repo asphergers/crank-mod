@@ -18,6 +18,7 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EOKAPISTOL);
+                        entries.add(ModItems.STOPWATCH);
 
                     }).build());
 

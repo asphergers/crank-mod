@@ -3,6 +3,7 @@ package com.example.util;
 import com.example.Crank;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
@@ -14,6 +15,10 @@ public class CrankUtils {
     }
     public static RegistryKey<EntityType<?>> crankKeyOf(String id) {
         return RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(Crank.MOD_ID, id));
+    }
+
+    public static RegistryKey<Item> crankKeyOfItem(String id) {
+        return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Crank.MOD_ID, id));
     }
 
     public static float calculateDamage(float damage, LivingEntity entity) {

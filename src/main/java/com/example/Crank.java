@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.damage.CrankDamageTypes;
+import com.example.entity.ModEntities;
 import com.example.events.ModEvents;
 import com.example.item.ModItemGroups;
 import com.example.item.ModItems;
@@ -23,6 +24,7 @@ public class Crank implements ModInitializer {
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
 		ModEvents.initialize();
+		ModEntities.registerModEntities();
 		CrankDamageTypes.registerModDamageType();
 		System.out.println("Registered Damage Types: " + RegistryKeys.DAMAGE_TYPE);
 	}

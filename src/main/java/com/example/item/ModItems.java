@@ -2,6 +2,8 @@ package com.example.item;
 
 import com.example.Crank;
 import com.example.item.custom.EokaPistolItem;
+import com.example.item.custom.StopWatchItem;
+import com.example.util.CrankUtils;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -17,6 +19,10 @@ public class ModItems {
                     .maxCount(1)
                     .registryKey(PISTOL_KEY)));
 
+    public static final Item STOPWATCH = registerItem("stop",
+            new StopWatchItem(new Item.Settings()
+                    .maxCount(1)
+                    .registryKey(CrankUtils.crankKeyOfItem("stop"))));
 
 
     private static Item registerItem(String name, Item item) {
