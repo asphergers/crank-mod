@@ -26,46 +26,7 @@ public  class ModEvents {
         });
 
         ServerTickEvents.START_SERVER_TICK.register(s -> {
-            //add check to see if ticks are even frozen
-            if (CrankState.enableFreeze) {
-                CommandManager command = Crank.server.getCommandManager();
-                ServerCommandSource source = Crank.server.getCommandSource();
-                command.executeWithPrefix(source, "/tick freeze");
-                CrankState.unfreezeTick = Crank.server.getTicks() + (20 * 5);
-
-                var players = Crank.server.getPlayerManager().getPlayerList();
-                CrankState.playerPositions.clear();
-                for (int i = 0; i < players.size(); i++) {
-                    if (players.get(i).equals(CrankState.leadPlayer)) continue;
-
-                    var player = players.get(i);
-                    Vec3d p = new Vec3d(player.getX(), player.getY(), player.getZ());
-                    SavedPlayerPos pl = new SavedPlayerPos(p, players.get(i), player.getYaw(), player.getPitch());
-
-                    CrankState.playerPositions.add(pl);
-                }
-
-                CrankState.enableFreeze = false;
-            }
-
-            if (CrankState.frozen) {
-                if (CrankState.unfreezeTick < s.getTicks()) {
-                    String commandString = "/tick unfreeze";
-                    command.executeWithPrefix(source, commandString);
-                    CrankState.frozen = false;
-                }
-
-                for (int i = 0; i < CrankState.playerPositions.size(); i++) {
-                    SavedPlayerPos savedPlayer = CrankState.playerPositions.get(i);
-                    LivingEntity player = savedPlayer.player;
-                    Vec3d pos = savedPlayer.pos;
-
-                    var worldRegistryKey = player.getWorld().getRegistryKey();
-                    Set<PositionFlag> set = EnumSet.noneOf(PositionFlag.class);
-                    player.teleport(s.getWorld(worldRegistryKey), pos.x, pos.y, pos.z, set, savedPlayer.yaw, savedPlayer.pitch, true);
-                    //player.teleport(pos.x, pos.y, pos.z, true);
-                }
-            }
+            StopWatchLogic.updateFreeze(command, source);
         });
     }
 }
