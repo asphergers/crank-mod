@@ -2,6 +2,7 @@ package com.example.item;
 
 import com.example.Crank;
 import com.example.item.custom.EokaPistolItem;
+import com.example.item.custom.SpeakerItem;
 import com.example.item.custom.StopWatchItem;
 import com.example.util.CrankUtils;
 import net.minecraft.item.Item;
@@ -27,6 +28,10 @@ public class ModItems {
     public static final Item EOKABULLET = registerItem("eoka_bullet",
             new StopWatchItem(new Item.Settings()
                     .registryKey(CrankUtils.crankKeyOfItem("eoka_bullet"))));
+
+    public static final Item SPEAKER = registerItem("speaker",
+            new SpeakerItem(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("speaker"))));
 
 
     private static Item registerItem(String name, Item item) {

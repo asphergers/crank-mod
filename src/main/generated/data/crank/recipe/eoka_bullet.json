@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:gunpowder",
+    "R": "minecraft:iron_nugget"
+  },
+  "pattern": [
+    "RRR",
+    "RGR",
+    "RRR"
+  ],
+  "result": {
+    "count": 8,
+    "id": "crank:eoka_bullet"
+  }
+}

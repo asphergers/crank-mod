@@ -19,6 +19,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.EOKAPISTOL);
                         entries.add(ModItems.STOPWATCH);
+                        entries.add(ModItems.SPEAKER);
 
                     }).build());
 

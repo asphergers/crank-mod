@@ -46,7 +46,7 @@ public class EokaPistolItem extends Item {
             }
 
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
-            for(int i = 0; i < 20; i++){
+            for(int i = 0; i < 15; i++){
 
                 EokaShotEntity eokashot = new EokaShotEntity(world, user);
                 eokashot.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 2f, 10f);
