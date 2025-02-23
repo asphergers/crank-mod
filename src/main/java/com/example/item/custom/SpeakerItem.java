@@ -1,6 +1,8 @@
 package com.example.item.custom;
 
 import java.util.List;
+
+import com.example.entity.custom.SpeakerEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -53,10 +55,6 @@ public class SpeakerItem extends Item implements ProjectileItem {
         return new ToolComponent(List.of(), 1.0F, 2);
     }
 
-    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
-        return !miner.isCreative();
-    }
-
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.SPEAR;
     }
@@ -82,14 +80,14 @@ public class SpeakerItem extends Item implements ProjectileItem {
                         ServerWorld serverWorld = (ServerWorld)world;
                         stack.damage(1, playerEntity);
                         if (f == 0.0F) {
-                            TridentEntity tridentEntity = (TridentEntity)ProjectileEntity.spawnWithVelocity(TridentEntity::new, serverWorld, stack, playerEntity, 0.0F, 2.5F, 1.0F);
+                            SpeakerEntity speakerEntity = (SpeakerEntity) ProjectileEntity.spawnWithVelocity(SpeakerEntity::new, serverWorld, stack, playerEntity, 0.0F, 2.5F, 1.0F);
                             if (playerEntity.isInCreativeMode()) {
-                                tridentEntity.pickupType = PickupPermission.CREATIVE_ONLY;
+                                speakerEntity.pickupType = PickupPermission.CREATIVE_ONLY;
                             } else {
                                 playerEntity.getInventory().removeOne(stack);
                             }
 
-                            world.playSoundFromEntity((PlayerEntity)null, tridentEntity, (SoundEvent)registryEntry.value(), SoundCategory.PLAYERS, 1.0F, 1.0F);
+                            world.playSoundFromEntity((PlayerEntity)null, speakerEntity, (SoundEvent)registryEntry.value(), SoundCategory.PLAYERS, 1.0F, 1.0F);
                             return true;
                         }
                     }
@@ -145,8 +143,8 @@ public class SpeakerItem extends Item implements ProjectileItem {
     }
 
     public ProjectileEntity createEntity(World world, Position pos, ItemStack stack, Direction direction) {
-        TridentEntity tridentEntity = new TridentEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack.copyWithCount(1));
-        tridentEntity.pickupType = PickupPermission.ALLOWED;
-        return tridentEntity;
+        SpeakerEntity speakerEntity = new SpeakerEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack.copyWithCount(1));
+        speakerEntity.pickupType = PickupPermission.ALLOWED;
+        return speakerEntity;
     }
 }

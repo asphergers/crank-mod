@@ -2,6 +2,7 @@ package com.example.entity;
 
 import com.example.Crank;
 import com.example.entity.custom.EokaShotEntity;
+import com.example.entity.custom.SpeakerEntity;
 import com.example.util.CrankUtils;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -22,6 +23,14 @@ public class ModEntities {
             EntityType.Builder.<EokaShotEntity>create(EokaShotEntity::new, SpawnGroup.MISC)
                     .dimensions(0.5f, 0.5f)
                     .build(CrankUtils.crankKeyOf("eokashot"))
+    );
+
+    public static final EntityType<SpeakerEntity> SPEAKER = Registry.register(
+            Registries.ENTITY_TYPE,
+            Identifier.of(Crank.MOD_ID, "speaker"),
+            EntityType.Builder.<SpeakerEntity>create(SpeakerEntity::new, SpawnGroup.MISC)
+                    .dimensions(1.0f, 0.5f)
+                    .build(CrankUtils.crankKeyOf("speaker"))
     );
 
 
