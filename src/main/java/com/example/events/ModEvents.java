@@ -26,9 +26,7 @@ public  class ModEvents {
         });
 
         ServerTickEvents.START_SERVER_TICK.register(s -> {
-            int currentTick = s.getTicks();
             StopWatchLogic.updateFreeze(command, source);
-            SwapperLogic.updateSwapper(currentTick);
         });
     }
 }

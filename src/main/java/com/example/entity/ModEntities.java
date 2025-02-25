@@ -29,16 +29,8 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             Identifier.of(Crank.MOD_ID, "speaker"),
             EntityType.Builder.<SpeakerEntity>create(SpeakerEntity::new, SpawnGroup.MISC)
-                    .dimensions(1.0f, 0.5f)
+                    .dimensions(0.5f, 0.5f)
                     .build(CrankUtils.crankKeyOf("speaker"))
-    );
-
-    public static final EntityType<EokaShotEntity> SWAPPERENTITY = Registry.register(
-            Registries.ENTITY_TYPE,
-            Identifier.of(Crank.MOD_ID, "swapper_entity"),
-            EntityType.Builder.<EokaShotEntity>create(EokaShotEntity::new, SpawnGroup.MISC)
-                    .dimensions(1f, 1f)
-                    .build(CrankUtils.crankKeyOf("swapper_entity"))
     );
 
 

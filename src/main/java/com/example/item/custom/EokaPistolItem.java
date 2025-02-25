@@ -2,7 +2,6 @@ package com.example.item.custom;
 
 import com.example.entity.custom.EokaShotEntity;
 import com.example.item.ModItems;
-import com.example.state.CrankState;
 import com.example.util.CrankUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -46,21 +45,9 @@ public class EokaPistolItem extends Item {
                 bulletStack.decrement(shots);
             }
 
-            double threshold = 0.5;
-            double chance = Math.random();
-            if (user.isInCreativeMode()) {
-                if (!CrankState.debugEnabled) {
-                    chance = 1d;
-                }
-            }
-            if (chance < threshold) {
-                //add breaking / fail sound effect
-                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_ANVIL_DESTROY, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
-                return super.finishUsing(stack, world, user);
-            }
-
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
             for(int i = 0; i < 15; i++){
+
                 EokaShotEntity eokashot = new EokaShotEntity(world, user);
                 eokashot.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 2f, 10f);
                 world.spawnEntity(eokashot);
