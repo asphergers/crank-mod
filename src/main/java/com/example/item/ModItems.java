@@ -4,6 +4,7 @@ import com.example.Crank;
 import com.example.item.custom.EokaPistolItem;
 import com.example.item.custom.SpeakerItem;
 import com.example.item.custom.StopWatchItem;
+import com.example.item.custom.SwapperItem;
 import com.example.util.CrankUtils;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -32,6 +33,10 @@ public class ModItems {
     public static final Item SPEAKER = registerItem("speaker",
             new SpeakerItem(new Item.Settings()
                     .registryKey(CrankUtils.crankKeyOfItem("speaker"))));
+
+    public static final Item SWAPPER = registerItem("swapper",
+            new SwapperItem(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("swapper"))));
 
 
     private static Item registerItem(String name, Item item) {
