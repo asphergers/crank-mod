@@ -24,8 +24,7 @@ public class SwapperLogic {
 
             SwapRequest request = queue.get(i);
 
-            if (currentTick > request.tick) return;
-
+            if (currentTick < request.tick) return;
             LivingEntity owner = request.owner;
             var ownerPos = owner.getPos();
             var ownerYaw = owner.getYaw();
@@ -44,7 +43,7 @@ public class SwapperLogic {
             debug((PlayerEntity) owner, queue);
         }
 
-        queue.removeIf(request -> request.tick < currentTick);
+        queue.removeIf(request -> !(currentTick < request.tick));
     }
 
     private static void debug(PlayerEntity user, ArrayList<SwapRequest> q) {

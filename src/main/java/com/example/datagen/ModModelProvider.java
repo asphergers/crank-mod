@@ -23,6 +23,6 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.STOPWATCH, Models.GENERATED);
         itemModelGenerator.register(ModItems.EOKABULLET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPEAKER, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.SPEAKER, Models.GENERATED);
     }
 }

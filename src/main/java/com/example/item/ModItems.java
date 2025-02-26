@@ -36,6 +36,7 @@ public class ModItems {
 
     public static final Item SWAPPER = registerItem("swapper",
             new SwapperItem(new Item.Settings()
+                    .useCooldown(1.0f)
                     .registryKey(CrankUtils.crankKeyOfItem("swapper"))));
 
 
