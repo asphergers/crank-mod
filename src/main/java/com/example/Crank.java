@@ -6,11 +6,11 @@ import com.example.entity.ModEntities;
 import com.example.events.ModEvents;
 import com.example.item.ModItemGroups;
 import com.example.item.ModItems;
+import com.example.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +26,7 @@ public class Crank implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModEvents.initialize();
 		ModEntities.registerModEntities();
+		ModSounds.registerSounds();
 		ModCommands.initalize();
 		CrankDamageTypes.registerModDamageType();
 		System.out.println("Registered Damage Types: " + RegistryKeys.DAMAGE_TYPE);

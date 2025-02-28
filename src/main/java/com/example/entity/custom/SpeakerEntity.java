@@ -1,23 +1,17 @@
 package com.example.entity.custom;
 
-import com.example.Crank;
-import com.example.damage.CrankDamageTypes;
 import com.example.entity.ModEntities;
 import com.example.item.ModItems;
-import net.minecraft.entity.Entity;
+import com.example.sound.ModSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class SpeakerEntity extends PersistentProjectileEntity {
@@ -36,9 +30,8 @@ public class SpeakerEntity extends PersistentProjectileEntity {
 
     @Override
     protected ItemStack getDefaultItemStack() {
-        return new ItemStack(ModItems.EOKAPISTOL);
+        return new ItemStack(ModItems.SPEAKER);
     }
-
 
     public boolean isGrounded() {
         return isInGround();
@@ -47,8 +40,14 @@ public class SpeakerEntity extends PersistentProjectileEntity {
     @Override
     protected void onBlockHit(BlockHitResult result) {
         if (!this.getWorld().isClient()) {
-            this.getWorld().sendEntityStatus(this, (byte)3);
+            this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.SPEAKER_SOUND, SoundCategory.RECORDS, 3.0F, 1.0F);
+            this.setVelocity(0, 0, 0);
         }
+    }
+
+    @Override
+    protected void onEntityHit(EntityHitResult entityHitResult) {
+        this.setVelocity(0, 0, 0);
     }
 
     @Override
@@ -56,4 +55,3 @@ public class SpeakerEntity extends PersistentProjectileEntity {
         return super.tryPickup(player) || this.isNoClip() && this.isOwner(player) && player.getInventory().insertStack(this.asItemStack());
     }
 }
-
