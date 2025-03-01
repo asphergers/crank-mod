@@ -1,10 +1,7 @@
 package com.example.item;
 
 import com.example.Crank;
-import com.example.item.custom.EokaPistolItem;
-import com.example.item.custom.SpeakerItem;
-import com.example.item.custom.StopWatchItem;
-import com.example.item.custom.SwapperItem;
+import com.example.item.custom.*;
 import com.example.util.CrankUtils;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -38,6 +35,14 @@ public class ModItems {
             new SwapperItem(new Item.Settings()
                     .useCooldown(1.0f)
                     .registryKey(CrankUtils.crankKeyOfItem("swapper"))));
+
+    public static final Item BLACKHOLEITEM = registerItem("blackhole",
+            new BlackHoleItem(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("blackhole"))));
+
+    public static final Item CATCHERSMITT = registerItem("cathers_mitt",
+            new CatchersMit(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("catchers_mitt"))));
 
 
     private static Item registerItem(String name, Item item) {

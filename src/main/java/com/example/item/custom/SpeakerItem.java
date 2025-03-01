@@ -59,6 +59,7 @@ public class SpeakerItem extends Item implements ProjectileItem {
         return UseAction.SPEAR;
     }
 
+
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 72000;
     }

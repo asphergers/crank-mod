@@ -21,6 +21,9 @@ public class CrankModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(SpeakerModel.SPEAKER, SpeakerModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SPEAKER, SpeakerRenderer::new);
 
+        EntityModelLayerRegistry.registerModelLayer(BlackHoleModel.BLACKHOLE, BlackHoleModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BLACKHOLE, BlackHoleRenderer::new);
+
         ModModelPredicates.registerModelPredicates();
     }
 }

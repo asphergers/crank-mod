@@ -1,6 +1,7 @@
 package com.example.entity.client;
 
 
+import com.example.Crank;
 import com.example.entity.custom.EokaShotEntity;
 import com.example.entity.custom.SpeakerEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -14,7 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.RotationAxis;
 
 public class SpeakerRenderer extends EntityRenderer<SpeakerEntity, SpeakerRenderState> {
-    public static final Identifier TEXTURE = Identifier.of("textures/entity/eokashot/eokashot.png");
+    public static final Identifier TEXTURE = Identifier.of(Crank.MOD_ID, "textures/entity/speaker/speaker.png");
     private final SpeakerModel model;
 
     public SpeakerRenderer(EntityRendererFactory.Context context) {
