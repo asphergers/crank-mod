@@ -5,16 +5,11 @@ import com.example.entity.custom.BlackHoleEntity;
 import com.example.entity.custom.EokaShotEntity;
 import com.example.entity.custom.SpeakerEntity;
 import com.example.util.CrankUtils;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.damage.DamageType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class ModEntities {
@@ -50,6 +45,7 @@ public class ModEntities {
                 .dimensions(8f, 8f)
                 .build(CrankUtils.crankKeyOf("blackhole"))
     );
+
 
 
 

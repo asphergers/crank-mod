@@ -2,8 +2,8 @@ package com.example.item.custom;
 
 import net.minecraft.item.Item;
 
-public class EokaBullet extends Item {
-    public EokaBullet(Settings settings) {
+public class EokaBulletItem extends Item {
+    public EokaBulletItem(Settings settings) {
         super(settings);
     }
 }

@@ -41,8 +41,12 @@ public class ModItems {
                     .registryKey(CrankUtils.crankKeyOfItem("blackhole"))));
 
     public static final Item CATCHERSMITT = registerItem("cathers_mitt",
-            new CatchersMit(new Item.Settings()
+            new CatchersMitItem(new Item.Settings()
                     .registryKey(CrankUtils.crankKeyOfItem("catchers_mitt"))));
+
+    public static final Item FLASHBANG = registerItem("flashbang",
+            new FlashBangItem(new Item.Settings()
+                    .registryKey(CrankUtils.crankKeyOfItem("flashbang"))));
 
 
     private static Item registerItem(String name, Item item) {

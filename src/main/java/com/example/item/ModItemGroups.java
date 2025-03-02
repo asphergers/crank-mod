@@ -2,6 +2,7 @@ package com.example.item;
 
 
 import com.example.Crank;
+import com.example.item.custom.FlashBangItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -18,11 +19,13 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EOKAPISTOL);
+                        entries.add(ModItems.EOKABULLET);
                         entries.add(ModItems.STOPWATCH);
                         entries.add(ModItems.SPEAKER);
                         entries.add(ModItems.SWAPPER);
                         entries.add(ModItems.BLACKHOLEITEM);
                         entries.add(ModItems.CATCHERSMITT);
+                        entries.add(ModItems.FLASHBANG);
 
                     }).build());
 
