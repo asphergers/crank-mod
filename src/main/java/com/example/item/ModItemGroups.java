@@ -23,7 +23,6 @@ public class ModItemGroups {
                         entries.add(ModItems.SWAPPER);
                         entries.add(ModItems.BLACKHOLEITEM);
                         entries.add(ModItems.CATCHERSMITT);
-                        entries.add(ModItems.WARPSTONEITEM);
 
                     }).build());
 
