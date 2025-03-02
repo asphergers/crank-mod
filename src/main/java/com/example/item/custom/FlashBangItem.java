@@ -25,18 +25,21 @@ public class FlashBangItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        var worldRegistryKey = user.getWorld().getRegistryKey();
-        Predicate<LivingEntity> predicate = LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE;
-        DamageSource damageSource = new DamageSource(
-                user.getWorld().getRegistryManager()
-                        .getOrThrow(RegistryKeys.DAMAGE_TYPE)
-                        .getEntry(CrankDamageTypes.IGNORE_IFRAMES.getValue()).get()
-        );
-        var playerList = Crank.server.getPlayerManager().getPlayerList();
-        for(int i = 0; i < Crank.server.getCurrentPlayerCount(); i++){
-            var player = playerList.get(i);
-            if(player.isEntityLookingAtMe(user, 0.5, false, false, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{})){
-                player.damage(Crank.server.getWorld(worldRegistryKey), damageSource, 10);
+        if (user.getWorld().isClient()) {
+            var worldRegistryKey = user.getWorld().getRegistryKey();
+            Predicate<LivingEntity> predicate = LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE;
+            DamageSource damageSource = new DamageSource(
+                    user.getWorld().getRegistryManager()
+                            .getOrThrow(RegistryKeys.DAMAGE_TYPE)
+                            .getEntry(CrankDamageTypes.IGNORE_IFRAMES.getValue()).get()
+            );
+
+            var playerList = Crank.server.getPlayerManager().getPlayerList();
+            for(int i = 0; i < Crank.server.getCurrentPlayerCount(); i++){
+                var player = playerList.get(i);
+                if(player.isEntityLookingAtMe(user, 0.5, false, false, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{})){
+                    player.damage(Crank.server.getWorld(worldRegistryKey), damageSource, 10);
+                }
             }
         }
 
