@@ -1,6 +1,6 @@
 package com.example.mixin;
 
-import com.example.item.custom.CatchersMitItem;
+import com.example.item.custom.CatchersMittItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -21,8 +21,8 @@ public abstract class LivingEntityMixin {
 
         if (itemStack == null) { cir.setReturnValue(false); return; }
 
-        if (itemStack.getItem() instanceof CatchersMitItem) {
-            CatchersMitItem item = (CatchersMitItem) itemStack.getItem();
+        if (itemStack.getItem() instanceof CatchersMittItem) {
+            CatchersMittItem item = (CatchersMittItem) itemStack.getItem();
             if ( !(entity instanceof PersistentProjectileEntity) ) {cir.setReturnValue(false); return;}
             item.projectiles.add((PersistentProjectileEntity) entity);
             //entity.discard();

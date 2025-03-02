@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class CatchersMitItem extends ShieldItem {
+public class CatchersMittItem extends ShieldItem {
     public ArrayList<PersistentProjectileEntity> projectiles = new ArrayList<>();
-    public CatchersMitItem(Settings settings) {
+    public CatchersMittItem(Settings settings) {
         super(settings);
     }
 

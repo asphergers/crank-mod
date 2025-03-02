@@ -41,7 +41,7 @@ public class ModItems {
                     .registryKey(CrankUtils.crankKeyOfItem("blackhole"))));
 
     public static final Item CATCHERSMITT = registerItem("cathers_mitt",
-            new CatchersMitItem(new Item.Settings()
+            new CatchersMittItem(new Item.Settings()
                     .registryKey(CrankUtils.crankKeyOfItem("catchers_mitt"))));
 
     public static final Item FLASHBANG = registerItem("flashbang",
