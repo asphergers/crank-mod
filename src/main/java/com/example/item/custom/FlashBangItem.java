@@ -2,14 +2,12 @@ package com.example.item.custom;
 
 import com.example.Crank;
 import com.example.damage.CrankDamageTypes;
-import net.minecraft.client.render.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -37,8 +35,10 @@ public class FlashBangItem extends Item {
             var playerList = Crank.server.getPlayerManager().getPlayerList();
             for(int i = 0; i < Crank.server.getCurrentPlayerCount(); i++){
                 var player = playerList.get(i);
-                if (user.isEntityLookingAtMe(player, 0.5, true, false, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{player::getEyeY})) {
-                    player.damage(Crank.server.getWorld(worldRegistryKey), damageSource, 10);
+                if(player != user){
+                    if (user.isEntityLookingAtMe(player, 1, true, false, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{player::getEyeY})) {
+                        player.damage(Crank.server.getWorld(worldRegistryKey), damageSource, 1);
+                    }
                 }
             }
         }
