@@ -36,7 +36,7 @@ public class FlashBangItem extends Item {
             for(int i = 0; i < Crank.server.getCurrentPlayerCount(); i++){
                 var player = playerList.get(i);
                 if(player != user){
-                    if (user.isEntityLookingAtMe(player, 1, true, false, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{player::getEyeY})) {
+                    if (user.isEntityLookingAtMe(player, 0.8, false, true, LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE, new DoubleSupplier[]{user::getEyeY})) {
                         player.damage(Crank.server.getWorld(worldRegistryKey), damageSource, 1);
                     }
                 }
