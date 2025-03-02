@@ -18,11 +18,13 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EOKAPISTOL);
+                        entries.add(ModItems.EOKABULLET);
                         entries.add(ModItems.STOPWATCH);
                         entries.add(ModItems.SPEAKER);
                         entries.add(ModItems.SWAPPER);
                         entries.add(ModItems.BLACKHOLEITEM);
                         entries.add(ModItems.CATCHERSMITT);
+                        entries.add(ModItems.FLASHBANG);
 
                     }).build());
 
