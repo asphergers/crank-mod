@@ -13,15 +13,17 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class CatchersMit extends ShieldItem {
+public class CatchersMittItem extends ShieldItem {
     public ArrayList<PersistentProjectileEntity> projectiles = new ArrayList<>();
-    public CatchersMit(Settings settings) {
+    public CatchersMittItem(Settings settings) {
         super(settings);
     }
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         user.setCurrentHand(hand);
+        var worldRegistryKey = user.getWorld().getRegistryKey();
+
         switch (hand) {
             case hand.MAIN_HAND -> {
                 if (CrankState.debugEnabled) { debug(user); }
@@ -29,14 +31,16 @@ public class CatchersMit extends ShieldItem {
 
             case hand.OFF_HAND -> {
                 for (int i = 0; i < this.projectiles.size(); i++) {
-                    var current = projectiles.get(i);
+                    var current = this.projectiles.get(i);
                     var t = current.getType();
-                    var worldRegistryKey = user.getWorld().getRegistryKey();
                     BlockPos currentBlockPos = user.getBlockPos().up(1);
-                    PersistentProjectileEntity nEntity = (PersistentProjectileEntity) t.create(user.getServer().getWorld(worldRegistryKey), null, currentBlockPos ,SpawnReason.EVENT, true, false);
-                    nEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0f, 10f, 0f);
+                    PersistentProjectileEntity nEntity = (PersistentProjectileEntity) t.create(user.getServer().getWorld(worldRegistryKey), null, currentBlockPos ,SpawnReason.SPAWN_ITEM_USE, true, false);
+                    nEntity.setOwner(user);
+                    nEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0f, 2f, 3f);
                     world.spawnEntity(nEntity);
                 }
+
+                this.projectiles.clear();
             }
         }
         return ActionResult.CONSUME;

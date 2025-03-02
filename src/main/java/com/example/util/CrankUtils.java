@@ -1,6 +1,7 @@
 package com.example.util;
 
 import com.example.Crank;
+import com.example.state.CrankState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -9,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,5 +49,15 @@ public class CrankUtils {
         }
 
         return Optional.empty();
+    }
+
+    public static BlockPos getWarpStoneWarp(BlockPos current, double yaw, double pitch, int distance) {
+        double deltaX = -(Math.sin(Math.toRadians(yaw)) * distance);
+        double deltaZ = (Math.cos(Math.toRadians(yaw)) * distance);
+        double delatY = -(Math.sin(Math.toRadians(pitch)) * distance);
+
+        BlockPos nBlockPos = new BlockPos(current.getX() + (int)deltaX, current.getY() + (int)delatY, current.getZ() + (int)deltaZ);
+
+        return nBlockPos;
     }
 }

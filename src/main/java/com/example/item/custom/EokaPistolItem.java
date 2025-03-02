@@ -42,8 +42,13 @@ public class EokaPistolItem extends Item {
                 if (!CrankUtils.hasItem(((PlayerEntity) user).getInventory(), ModItems.EOKABULLET)) { return super.finishUsing(stack, world, user); }
 
                 ItemStack bulletStack = CrankUtils.getItemFromInventory(((PlayerEntity) user).getInventory(), ModItems.EOKABULLET).get();
-                if (bulletStack.getCount() < shots) { return super.finishUsing(stack, world, user); }
-                bulletStack.decrement(shots);
+                if (bulletStack.getCount() < shots) {
+                    bulletStack.decrement(bulletStack.getCount());
+                    shots = bulletStack.getCount();
+                    //return super.finishUsing(stack, world, user);
+                } else {
+                    bulletStack.decrement(shots);
+                }
             }
 
             double threshold = 0.5;
@@ -55,12 +60,12 @@ public class EokaPistolItem extends Item {
             }
             if (chance < threshold) {
                 //add breaking / fail sound effect
-                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_ANVIL_DESTROY, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
                 return super.finishUsing(stack, world, user);
             }
 
             world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
-            for(int i = 0; i < 15; i++){
+            for(int i = 0; i < shots; i++){
                 EokaShotEntity eokashot = new EokaShotEntity(world, user);
                 eokashot.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 2f, 10f);
                 world.spawnEntity(eokashot);

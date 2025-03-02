@@ -38,11 +38,19 @@ public class ModItems {
 
     public static final Item BLACKHOLEITEM = registerItem("blackhole",
             new BlackHoleItem(new Item.Settings()
+                    .maxCount(1)
+                    .useCooldown(2)
                     .registryKey(CrankUtils.crankKeyOfItem("blackhole"))));
 
     public static final Item CATCHERSMITT = registerItem("cathers_mitt",
-            new CatchersMit(new Item.Settings()
+            new CatchersMittItem(new Item.Settings()
+                    .maxCount(1)
                     .registryKey(CrankUtils.crankKeyOfItem("catchers_mitt"))));
+
+    public static final Item WARPSTONEITEM = registerItem("warp_stone",
+            new WarpStoneItem(new Item.Settings()
+                    .maxCount(1)
+                    .registryKey(CrankUtils.crankKeyOfItem("warp_stone"))));
 
 
     private static Item registerItem(String name, Item item) {

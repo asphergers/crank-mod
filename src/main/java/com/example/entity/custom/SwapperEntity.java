@@ -44,6 +44,12 @@ public class SwapperEntity extends PersistentProjectileEntity {
     public void onPlayerCollision(PlayerEntity victim) {
         if (!this.getWorld().isClient()) {
             Entity owner = this.getOwner();
+            if (victim.isBlocking()) {
+                this.getWorld().sendEntityStatus(this, (byte)3);
+                this.discard();
+                return;
+            }
+
             if (owner instanceof PlayerEntity && !(victim.getUuid().equals(owner.getUuid()))) {
                 int triggerTick = Crank.server.getTicks() + (int)(20 * 0.5);
                 SwapRequest request = new SwapRequest((PlayerEntity)owner, victim, triggerTick);

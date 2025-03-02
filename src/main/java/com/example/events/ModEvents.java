@@ -29,6 +29,7 @@ public  class ModEvents {
             int currentTick = s.getTicks();
             StopWatchLogic.updateFreeze(command, source);
             SwapperLogic.updateSwapper(currentTick);
+            BlackHoleLogic.updateBlackHoles(currentTick);
         });
     }
 }

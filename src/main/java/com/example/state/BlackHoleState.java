@@ -9,6 +9,6 @@ public class BlackHoleState {
         this.expireTick = expireTick;
     }
 
-    BlackHoleEntity hole;
-    int expireTick;
+    public BlackHoleEntity hole;
+    public int expireTick;
 }
