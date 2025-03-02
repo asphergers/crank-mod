@@ -25,7 +25,7 @@ public class FlashBangItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        if (user.getWorld().isClient()) {
+        if (!user.getWorld().isClient()) {
             var worldRegistryKey = user.getWorld().getRegistryKey();
             Predicate<LivingEntity> predicate = LivingEntity.NOT_WEARING_GAZE_DISGUISE_PREDICATE;
             DamageSource damageSource = new DamageSource(
